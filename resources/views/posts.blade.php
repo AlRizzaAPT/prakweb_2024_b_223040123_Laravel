@@ -54,13 +54,13 @@
         <a href="/posts/{{ $post['slug'] }}" class="font-medium text-blue-500 hover:underline">Read more &raquo;</a>
     </article> --}}
 
+            {{ $posts->links() }}
 
 
-
-    <div class="py-4 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-0">
+    <div class="my-4 py-4 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-0">
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             @forelse ($posts as $post)
-            <article class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <article class="p-6 bgF-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-between items-center mb-5 text-gray-500">
                     <a href="/posts?category={{ $post->category->slug }}">   <span class="text-black text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:text-primary-800" style="background-color: {{ $post->category->color }};">
                                 {{ $post->category->name }}
@@ -98,4 +98,6 @@
             @endforelse
         </div>
     </div>
+    {{ $posts->links() }}
+
 </x-layout>
